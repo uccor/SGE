@@ -45,6 +45,14 @@
                             </select>
                             </td>
                     </tr>
+                    
+                    <tr class="form-group">
+                        <td><label >Jefe</label></td>
+                        <td><select class="form-control" ng-model="empleado.jefe" ng-options="empleado.id as empleado.nombre for empleado in empleados">
+                                <option >Chuck Norris</option>
+                            </select>
+                            </td>
+                    </tr>
                 	    
                 	</table>
                 	
@@ -79,19 +87,9 @@
                 	</div>
                 
                     <div ng-controller="OrganigramaController">
-                        <p>Organigrama de la Empresa</p>
-                        
-                        <div>Todos los BigBoss
-                            <li ng-repeat = "empleado in empleados">
-                                {{empleado.puesto  =="The big boss"}}
-                        </div>
-                        
-                        <div>
-                            Todos los Jefes
-                        </div>
-                        
-                        <div>
-                            Todos los Empleados
+                        <div id="orgChart">
+                            
+                            
                         </div>
                     
                     </div>

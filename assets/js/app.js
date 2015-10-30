@@ -1,22 +1,39 @@
 var app = angular.module("sge",[]);
 app.controller("OrganigramaController", function($scope,$http){
-    $scope.organigrama = [];
-    $scope.addItem = function () {
-        
-    }
+    $scope.empleados = [];
     
-    var crearOrganigrama = function () {
-        var listaEmpleados = obtenerEmpleados();
-
-        
-    };
-    var obtenerEmpleados = function(){
-        //app.controller.EmpleadoController.listarEmpleados
-        $http.get("/empleados/").then(function(results){
-            return $scope.epleados = results.data;
+    var testData = [
+    {id: 1, name: 'Acme Organization', parent: 0},
+    {id: 2, name: 'CEO Office', parent: 1},
+    {id: 3, name: 'Division 1', parent: 1},
+    {id: 4, name: 'Division 2', parent: 1},
+    {id: 6, name: 'Division 3', parent: 1},
+    {id: 7, name: 'Division 4', parent: 1},
+    {id: 8, name: 'Division 5', parent: 1},
+    {id: 5, name: 'Sub Division', parent: 3},        
+    ];
+    
+    var listarEmpleados = function () {
+        var promesaEmpleados = $http.get("/empleado/");
+        promesaEmpleados.then(function(results){
+            
+        testData = _.map(results.data,function (empleado) {
+        return {
+            id : empleado.id,
+            name: empleado.nombre,
+            parent: empleado.jefe || 0
+        }
+    });
+    if (testData.length > 0) {
+    var orgChart = $('#orgChart').orgChart({data: testData});
+    }
         });
-        
     };
+    
+    
+    listarEmpleados();
+
+   
 });
 app.controller("EmpleadoController", function($scope,$http){
     $scope.empleados = [];
@@ -29,6 +46,8 @@ app.controller("EmpleadoController", function($scope,$http){
         });
     };
     
+    listarEmpleados();
+        
     $scope.empleado = {
         nombre:""
     };
