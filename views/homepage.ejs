@@ -23,27 +23,32 @@
                     <div class="panel-heading">
                 			<h2 class="title" align="center" styles="backgroundColor=black"> Alta de empleados </h2>
                 	</div>
-                    
-                    <div class="form-group">
-                        <label for="nombreInput">Nombre</label>
-                        <input type="text" class="form-control" id="nombreInput" ng-model="empleado.nombre" placeholder="Nombre">
-                    </div>
+                	
+                	<table>
+                	    
+                	   <tr class="form-group">
+                        <td><label for="nombreInput">Nombre</label></td>
+                        <td><input type="text" class="form-control" id="nombreInput" ng-model="empleado.nombre" placeholder="Nombre"></td>
+                    </tr>
                       
-                    <div class="form-group">
-                        <label for="apellidoInput">Apellido</label>
-                        <input type="text" class="form-control" id="apellidoInput" ng-model="empleado.apellido" placeholder="Apellido">
-                    </div>
+                    <tr class="form-group">
+                        <td><label for="apellidoInput">Apellido</label></td>
+                        <td><input type="text" class="form-control" id="apellidoInput" ng-model="empleado.apellido" placeholder="Apellido"></td>
+                    </tr>
                       
-                    <div class="form-group">
-                         <label >Puesto</label>
-                            <select class="form-control" ng-model="empleado.puesto">
+                    <tr class="form-group">
+                         <td><label >Puesto</label></td>
+                        <td><select class="form-control" ng-model="empleado.puesto">
                                 <option>Jefe</option>
                                 <option>Empleado</option>
                                 <option>The big boss</option>
                             </select>
-                    </div>
-                    
-                    <button class="btn btn-default" ng-click="altaEmpleado()">Agregar</button>
+                            </td>
+                    </tr>
+                	    
+                	</table>
+                	
+                	<button class="btn btn-default" ng-click="altaEmpleado()">Agregar</button>
                     
                 </section>
                 
@@ -53,15 +58,15 @@
                 	</div>
                 
                     <div>
-                        <ul>
-                            <li ng-repeat="empleado in empleados">
-                                        {{empleado.nombre}}
-                                        {{empleado.apellido}}
-                                        {{empleado.puesto}}
-                                    <button class="btn btn-default" ng-click="bajaEmpleado(empleado.id)">Eliminar</button>
-                                    <button class="btn btn-default" ng-click="modificarEmpleado(empleado.id)">Modificar</button>
-                            </li>
-                        </ul>
+                        <table>
+                            <tr ng-repeat="empleado in empleados">
+                                        <td>{{empleado.nombre}}</td>
+                                        <td>{{empleado.apellido}}</td> 
+                                        <td>{{empleado.puesto}}</td>
+                                    <td><button class="btn btn-default" ng-click="bajaEmpleado(empleado.id)">Eliminar</button></td>
+                                    <td><button class="btn btn-default" ng-click="modificarEmpleado(empleado.id)">Modificar</button></td>
+                            </tr>
+                        </table>
                     </div>
                     
                     

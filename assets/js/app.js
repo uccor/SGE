@@ -6,11 +6,7 @@ app.controller("OrganigramaController", function($scope,$http){
     }
     
     var crearOrganigrama = function () {
-        var options = {};
-        //Items
         var listaEmpleados = obtenerEmpleados();
-        
-        
 
         
     };
