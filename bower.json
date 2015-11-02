@@ -20,6 +20,7 @@
       "main": [
         "less/bootstrap.less",
         "dist/css/bootstrap.css",
+        "dist/js/bootstrap.min.js",
         "dist/js/bootstrap.js"
       ]
     }
@@ -28,6 +29,7 @@
     "angular": "~1.4.7",
     "bootstrap": "3.3.2",
     "jquery-orgchart": "~0.0.2",
-    "lodash": "~3.10.1"
+    "lodash": "~3.10.1",
+    "jquery": "2.1.1"
   }
 }

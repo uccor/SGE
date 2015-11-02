@@ -1,72 +1,185 @@
-<!-- Default home page -->
-<link type="text/css" href='http://sailsjs.org/styles/fonts.css' rel='stylesheet'/>
-<style>
-    /* Styles included inline since you'll probably be deleting this page anyway */
-    html,body{text-align:left;font-size:1em}
-    html,body,img,form,textarea,input,fieldset,div,p,div,ul,li,ol,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,code{margin:0;padding:0}
-    ul,li{list-style:none}img{display:block}a img{border:0}a{text-decoration:none;font-weight:normal;font-family:inherit}*:active,*:focus{outline:0;-moz-outline-style:none}h1,h2,h3,h4,h5,h6{font-weight:normal}div.clear{clear:both}.clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden}body{font-family:"Open Sans",Arial,sans-serif;font-weight:300;}.top-bar {width: 100%; background-color: #e4f0f1; padding: 15px 0;}.top-bar .container img {float: left;}.top-bar .container ul {float: right; padding-top: 25px;}.top-bar .container li {float: left; width: 125px; text-align: center; font-size: 15px; color:#000; font-weight: 600;}.top-bar .container a li:hover {color: #118798; -webkit-transition:color 200ms; -moz-transition:color 200ms; -o-transition:color 200ms;transition:color 200ms;}.container{width: 80%; max-width: 1200px; margin: auto;}div.header {-webkit-transition: 6s; -moz-transition: 6s; -o-transition: 6s;transition: 6s; background: rgba(4, 36, 41, 0.89) url(http://sailsjs.org/images/img_sailsShadow.png) no-repeat 42% bottom; padding: 100px 0 65px;}.header h1#main-title{color: #fff; font-weight: 300; font-size: 2.5em;}.header h3{color: #b1eef7; font-style: italic; font-weight: 300;}.header h3 code{font-style: normal!important; background-color: rgba(255,255,255,0.5); font-weight: 300; color:#0e6471; margin: 0px 5px;}div.main.container{padding: 50px 0;}h1 {color: #118798; font-weight: 300;}code {font-size: inherit; font-family: 'Consolas', 'Monaco', monospace; padding:4px 5px 1px; background-color: #f3f5f7}a{color: #118798; font-weight: 300; text-decoration: underline;}a:hover {color: #0e6471; -webkit-transition:color 200ms; -moz-transition:color 200ms; -o-transition:color 200ms;transition:color 200ms;}p{line-height: 1.5em;}blockquote{background-color: #e4f0f1; padding: 25px; line-height: 1.5em; margin: 15px 0;}blockquote span{font-weight: 600; padding-right: 5px;}ul.getting-started{padding: 25px 75px 25px 0; width: 70%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}ul.getting-started li{padding: 25px 0;}ul.getting-started li h3 {padding-bottom: 10px; font-size: 25px; font-weight: 300;}.sprite{background:url(http://sailsjs.org/images/newapp.sprite.png) no-repeat; position: absolute; left: 0; top:0;}.getting-started .sprite{margin-left:10px;padding-left:60px;height:42px;width:0; float: left;}.getting-started .one{background-position:0 0}.getting-started .two{background-position:0 -42px}.getting-started .three{background-position:0 -83px}div.step {position: relative; padding-left: 70px; opacity: 0.9;}div.step:hover{ opacity: 1;}div.links {float: left; width: 30%; max-width: 325px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; background-color: #f3f5f7; border: 1px solid #ebebeb; padding: 25px 45px 35px;}div.links h3 {color: #727272; text-align: center; font-size: 28px; font-weight: 300;}div.links h4 {color: #727272; font-size: 17px; font-weight: 600; padding: 15px 0 10px;}div.links .link-list a {text-decoration: none; font-weight: 400;}div.links .link-list a li {padding: 0px 0px 5px 10px;}div.default-page{min-width: 1200px;}.pocket{display:none;}
-</style>
-<script type="text/javascript">setTimeout(function sunrise () {document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';}, 0);</script>
+<header id="header">
+        <nav class="navbar navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">Sistema de Gestión de Empleados</a>
+                </div>				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#header">Home</a></li>
+                        <li><a href="#altaEmpleados">Alta</a></li>
+                        <li><a href="#listaEmpleados">Lista</a></li>
+                        <li><a href="#organigrama">Organigrama</a></li>
+                        <li><a href="#our-team">El equipo</a></li> 
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->		
+</header><!--/header-->	
+
+	<div class="slider">		
+		<div id="about-slider">
+			<div id="carousel-slider" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators visible-xs">
+					<li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-slider" data-slide-to="1"></li>
+					<li data-target="#carousel-slider" data-slide-to="2"></li>
+				</ol>
+
+				<div class="carousel-inner">
+					<div class="item active">						
+						<img src="images/img/7.jpg" class="img-responsive" alt=""> 
+						<div class="carousel-caption">
+							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">								
+								<h2><span>Cloud Development</span></h2>
+							</div>
+							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">								
+								<p>Seminario II</p>
+							</div>
+							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">								
+								
+							</div>
+						</div>
+				    </div>
+			
+				    <div class="item">
+						<img src="images/img/6.jpg" class="img-responsive" alt=""> 
+						<div class="carousel-caption">
+							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">								
+								<h2>Trabajo Práctico de Curso</h2>
+							</div>
+							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.3s">								
+								<p>Implementación de metodologías ágiles: SCRUM.</p>
+							</div>
+							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.6s">								
+								<form class="form-inline">
+									
+								</form>
+							</div>
+						</div>
+				    </div> 
+				    <div class="item">
+						<img src="images/img/1.jpg" class="img-responsive" alt=""> 
+						<div class="carousel-caption">
+							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">								
+								<h2>Facultad de Ingeniería</h2>
+							</div>
+							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">								
+								<p>Universidad Católica de Córdoba</p>
+							</div>
+							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">								
+								<form class="form-inline">
+									
+								</form>
+							</div>
+						</div>
+				    </div> 
+				</div>
+				
+				<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
+					<i class="fa fa-angle-left"></i> 
+				</a>
+				
+				<a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
+					<i class="fa fa-angle-right"></i> 
+				</a>
+			</div> <!--/#carousel-slider-->
+		</div><!--/#about-slider-->
+	</div><!--/#slider-->
+
 
 <div class="default-page">
-    <div class="header">
-        <h1 id="main-title" class="container"><%= __('Sistema de Gestión de Empleados') %></h1>
-        <!--<h3 class="container">You're looking at: <code><%= view.pathFromApp + '.' +view.ext %></code></h3>-->
-    </div>
     
     <div class="main container clearfix">
         <div>
             <div  ng-controller="EmpleadoController">
             <form>
 
-                <section>
-                    <div class="panel-heading">
+                <section id="altaEmpleados">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <div class="panel-heading" style="background-color:#cccccc; overflow: auto; width:100%;">
                 			<h2 class="title" align="center" styles="backgroundColor=black"> Alta de empleados </h2>
                 	</div>
                 	
+                	<br>
+                    <br>
+                    
                 	<table>
                 	    
-                	   <tr class="form-group">
-                        <td><label for="nombreInput">Nombre</label></td>
+                	<tr class="form-group">
+                        <td><label for="nombreInput">Nombre: </label></td>
                         <td><input type="text" class="form-control" id="nombreInput" ng-model="empleado.nombre" placeholder="Nombre"></td>
                     </tr>
-                      
+                    
                     <tr class="form-group">
-                        <td><label for="apellidoInput">Apellido</label></td>
+                        <td><label for="apellidoInput">Apellido: </label></td>
                         <td><input type="text" class="form-control" id="apellidoInput" ng-model="empleado.apellido" placeholder="Apellido"></td>
                     </tr>
-                      
+                    
                     <tr class="form-group">
-                         <td><label >Puesto</label></td>
-                        <td><select class="form-control" ng-model="empleado.puesto">
+                         <td><label >Puesto: </label></td>
+                         <td><select class="form-control" ng-model="empleado.puesto">
                                 <option>Jefe</option>
                                 <option>Empleado</option>
                                 <option>The big boss</option>
                             </select>
-                            </td>
+                         </td>
                     </tr>
                     
                     <tr class="form-group">
-                        <td><label >Jefe</label></td>
+                        <td><label >Jefe: </label></td>
                         <td><select class="form-control" ng-model="empleado.jefe" ng-options="empleado.id as empleado.nombre for empleado in empleados">
                                 <option >Chuck Norris</option>
                             </select>
-                            </td>
+                        </td>
+                    </tr>
+                    
+                    <tr class="center">
+                        <td colspan='2' align="center">
+                            <button class="btn btn-default" ng-click="altaEmpleado()">Agregar</button>
+                        </td>
                     </tr>
                 	    
                 	</table>
-                	
-                	<button class="btn btn-default" ng-click="altaEmpleado()">Agregar</button>
                     
                 </section>
                 
-                <section>
-                    <div class="panel-heading">
+                <section id="listaEmpleados">
+                    
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <div class="panel-heading" style="background-color:#cccccc; overflow: auto;">
                 			<h2 class="title" align="center" styles="backgroundColor=black"> Lista de empleados </h2>
                 	</div>
                 
+                    <br>
+                    <br>
+                
                     <div>
                         <table>
+                            <thead bgcolor="#DCDCDC">
+								<tr>
+									<th>Nombre</th>
+									<th>Apellido</th>
+									<th>Puesto</th>
+									<th></th>
+									<th></th>
+								</tr>
+							</thead>
                             <tr ng-repeat="empleado in empleados">
                                         <td>{{empleado.nombre}}</td>
                                         <td>{{empleado.apellido}}</td> 
@@ -77,12 +190,16 @@
                         </table>
                     </div>
                     
-                    
-                    
                 </section>
                 
-                <section>
-                    <div class="panel-heading">
+                <section id="organigrama">
+                    
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <div class="panel-heading" style="background-color:#cccccc; overflow: auto;">
                 			<h2 class="title" align="center" styles="backgroundColor=black"> Organigrama de la empresa </h2>
                 	</div>
                 
@@ -94,9 +211,56 @@
                     
                     </div>
                     
-                </section>    
-    
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
+                </section>
+                
+                <section id="our-team">
+                    
+                    		<div class="container">
+                    			<div class="text-center">
+                    				<h3>El equipo</h3>
+                    			</div>
+                    			
+                    			<div class="row">
+                    				<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
+                    					<div class="text-center">
+                    						<img src="images/img/imgFranF.jpg" alt="">
+                    						<h2>Francisco Fischer</h2>
+                    						<h4>Scrum Master & Team Member</h4>
+                    						<p>Ingeniería de Sistemas - UCC</p>
+                    					</div>
+                    				</div>
+                    				<div class="col-md-4 wow bounceInDown" data-wow-offset="0" data-wow-delay="0.3s">
+                    					<div class="text-center">
+                    						<img src="images/img/imgCaro.jpg" alt="">
+                    						<h2>Carolina Bottino</h2>
+                    						<h4>Scrum Master & Team Member</h4>
+                    						<p>Ingeniería de Sistemas - UCC</p>
+                    					</div>
+                    				</div>
+                    				<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
+                    					<div class="text-center">
+                    						<img src="images/img/imgFranR.jpg" alt="">
+                    						<h2>Francisco Rassetto</h2>
+                    						<h4>Product Owner & Team Member</h4>
+                    						<p>Ingeniería de Sistemas - UCC</p>
+                    					</div>
+                    				</div>	
+                    			</div>
+                    	</div><!--/#our-team-->
+                </section>
             </form>
     </div>
 </div>
 
+<footer>
+	<section>
+		<div class="col-lg-12">
+			<h3> Copyright © Sistema de Gestión de Empleados - 2015</h3>
+		</div>
+	</section>
+</footer>
