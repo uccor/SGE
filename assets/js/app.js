@@ -1,17 +1,8 @@
 var app = angular.module("sge",[]);
+
 app.controller("OrganigramaController", function($scope,$http){
     $scope.empleados = [];
-    
-    var testData = [
-    {id: 1, name: 'Acme Organization', parent: 0},
-    {id: 2, name: 'CEO Office', parent: 1},
-    {id: 3, name: 'Division 1', parent: 1},
-    {id: 4, name: 'Division 2', parent: 1},
-    {id: 6, name: 'Division 3', parent: 1},
-    {id: 7, name: 'Division 4', parent: 1},
-    {id: 8, name: 'Division 5', parent: 1},
-    {id: 5, name: 'Sub Division', parent: 3},        
-    ];
+    var testData = [];
     
     var listarEmpleados = function () {
         var promesaEmpleados = $http.get("/empleado/");
@@ -24,17 +15,17 @@ app.controller("OrganigramaController", function($scope,$http){
             parent: empleado.jefe || 0
         }
     });
+    
     if (testData.length > 0) {
     var orgChart = $('#orgChart').orgChart({data: testData});
     }
         });
     };
     
-    
     listarEmpleados();
-
    
 });
+
 app.controller("EmpleadoController", function($scope,$http){
     $scope.empleados = [];
     
@@ -53,7 +44,7 @@ app.controller("EmpleadoController", function($scope,$http){
     };
     
     $scope.altaEmpleado = function () {
-        $http.post("/empleado/",$scope.empleado).then(listarEmpleados);
+        $http.post("/empleado/",$scope.empleado).then(listarEmpleados).then(OrganigramaController(listarEmpleados));
     };
     
     $scope.bajaEmpleado = function (id) {

@@ -822,19 +822,19 @@ ul.social-network li a {
   color: #EA4B49; 
 }
 
-table {
+#conCollapse {
     border-collapse: separate;
     width: 100%;
 }
 
-th {
+#conCollapse th {
     height: 50px;
     text-align: center;
     background-color: #b2b2b2;
     color: black;
 }
 
-td {
+#conCollapse td {
     height: 50px;
     vertical-align: bottom;
     padding: 15px;

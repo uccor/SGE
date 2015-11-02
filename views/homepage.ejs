@@ -15,6 +15,7 @@
                         <li class="active"><a href="#header">Home</a></li>
                         <li><a href="#altaEmpleados">Alta</a></li>
                         <li><a href="#listaEmpleados">Lista</a></li>
+                        <li><a href="#modificacionEmpleados">Modificar</a></li>
                         <li><a href="#organigrama">Organigrama</a></li>
                         <li><a href="#our-team">El equipo</a></li> 
                     </ul>
@@ -115,7 +116,7 @@
                 	<br>
                     <br>
                     
-                	<table>
+                	<table id="conCollapse">
                 	    
                 	<tr class="form-group">
                         <td><label for="nombreInput">Nombre: </label></td>
@@ -170,7 +171,7 @@
                     <br>
                 
                     <div>
-                        <table>
+                        <table id="conCollapse">
                             <thead bgcolor="#DCDCDC">
 								<tr>
 									<th>Nombre</th>
@@ -185,12 +186,73 @@
                                         <td>{{empleado.apellido}}</td> 
                                         <td>{{empleado.puesto}}</td>
                                     <td><button class="btn btn-default" ng-click="bajaEmpleado(empleado.id)">Eliminar</button></td>
-                                    <td><button class="btn btn-default" ng-click="modificarEmpleado(empleado.id)">Modificar</button></td>
                             </tr>
                         </table>
                     </div>
                     
                 </section>
+                
+                <section id="modificacionEmpleados">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <div class="panel-heading" style="background-color:#cccccc; overflow: auto; width:100%;">
+                			<h2 class="title" align="center" styles="backgroundColor=black"> Modificación de empleados </h2>
+                	</div>
+                	
+                	<br>
+                    <br>
+                    
+                	<table id="conCollapse">
+                	    
+                	<tr class="form-group">
+                        <td><label >ID: </label></td>
+                        <td><select class="form-control" ng-model="empleado.id" ng-options="empleado.id as empleado.id for empleado in empleados">
+                                <option >Chuck Norris</option>
+                            </select>
+                        </td>
+                    </tr>
+                	    
+                	<tr class="form-group">
+                        <td><label for="nombreInput">Nuevo nombre: </label></td>
+                        <td><input type="text" class="form-control" id="nombreInput" ng-model="empleado.nombre" placeholder="Nombre"></td>
+                    </tr>
+                    
+                    <tr class="form-group">
+                        <td><label for="apellidoInput">Nuevo apellido: </label></td>
+                        <td><input type="text" class="form-control" id="apellidoInput" ng-model="empleado.apellido" placeholder="Apellido"></td>
+                    </tr>
+                    
+                    <tr class="form-group">
+                         <td><label >Nuevo puesto: </label></td>
+                         <td><select class="form-control" ng-model="empleado.puesto">
+                                <option>Jefe</option>
+                                <option>Empleado</option>
+                                <option>The big boss</option>
+                            </select>
+                         </td>
+                    </tr>
+                    
+                    <tr class="form-group">
+                        <td><label >Nuevo jefe: </label></td>
+                        <td><select class="form-control" ng-model="empleado.jefe" ng-options="empleado.id as empleado.nombre for empleado in empleados">
+                                <option >Chuck Norris</option>
+                            </select>
+                        </td>
+                    </tr>
+                    
+                    <tr class="center">
+                        <td colspan='2' align="center">
+                            <button class="btn btn-default" ng-click="modificarEmpleado(empleado.id)">Modificar</button>
+                        </td>
+                    </tr>
+                	    
+                	</table>
+                    
+                </section>
+
                 
                 <section id="organigrama">
                     
