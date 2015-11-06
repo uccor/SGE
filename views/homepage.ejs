@@ -13,7 +13,8 @@
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#header">Home</a></li>
-                        <li><a href="#altaEmpleados">Alta</a></li>
+                        <li><a href="#altaEmpleados">Alta empleados</a></li>
+                        <li><a href="#puestos">Alta puestos</a></li> 
                         <li><a href="#listaEmpleados">Lista</a></li>
                         <li><a href="#modificacionEmpleados">Modificar</a></li>
                         <li><a href="#organigrama">Organigrama</a></li>
@@ -103,7 +104,7 @@
             <div  ng-controller="EmpleadoController">
             <form>
 
-                <section id="altaEmpleados">
+                <section id="altaEmpleados" ng-controller="PuestoController">
                     <br>
                     <br>
                     <br>
@@ -130,10 +131,8 @@
                     
                     <tr class="form-group">
                          <td><label >Puesto: </label></td>
-                         <td><select class="form-control" ng-model="empleado.puesto">
-                                <option>Jefe</option>
-                                <option>Empleado</option>
-                                <option>The big boss</option>
+                         <td><select class="form-control" ng-model="empleado.puesto" ng-options="puesto.nombrePuesto as puesto.nombrePuesto for puesto in puestos">
+                                <option>jhjjh</option>
                             </select>
                          </td>
                     </tr>
@@ -154,6 +153,29 @@
                 	    
                 	</table>
                     
+                </section>
+                
+                <section id="puestos" ng-controller="PuestoController">
+                    
+                    <div class="panel-heading" style="background-color:#cccccc; overflow: auto; width:100%;">
+                			<h2 class="title" align="center" styles="backgroundColor=black"> Alta de puestos </h2>
+                	</div>
+                	
+                    
+                	<table id="conCollapse">
+                	    
+                	<tr class="form-group">
+                        <td><label for="nombreInput">Puesto: </label></td>
+                        <td><input type="text" class="form-control" id="puestoInput" ng-model="puesto.nombrePuesto" placeholder="Puesto"></td>
+                    </tr>
+                    
+                     <tr class="center">
+                        <td colspan='2' align="center">
+                            <button class="btn btn-default" ng-click="altaPuesto()">Agregar</button>
+                        </td>
+                    </tr>
+                	    
+                	</table>
                 </section>
                 
                 <section id="listaEmpleados">
@@ -177,8 +199,7 @@
 									<th>Nombre</th>
 									<th>Apellido</th>
 									<th>Puesto</th>
-									<th></th>
-									<th></th>
+									<th>Acción</th>
 								</tr>
 							</thead>
                             <tr ng-repeat="empleado in empleados">
@@ -210,7 +231,7 @@
                 	<tr class="form-group">
                         <td><label >ID: </label></td>
                         <td><select class="form-control" ng-model="empleado.id" ng-options="empleado.id as empleado.id for empleado in empleados">
-                                <option >Chuck Norris</option>
+                                <option>id</option>
                             </select>
                         </td>
                     </tr>
@@ -227,12 +248,11 @@
                     
                     <tr class="form-group">
                          <td><label >Nuevo puesto: </label></td>
-                         <td><select class="form-control" ng-model="empleado.puesto">
-                                <option>Jefe</option>
-                                <option>Empleado</option>
-                                <option>The big boss</option>
+                         <td><select class="form-control" ng-model="empleado.puesto" ng-options="puesto.id as puesto.nombrePuesto for puesto in puestos">
+                                <option>puesto</option>
                             </select>
                          </td>
+                    </tr>
                     </tr>
                     
                     <tr class="form-group">
@@ -273,12 +293,9 @@
                     
                     </div>
                     
-                    <br>
-                    <br>
-                    <br>
-                    <br>
                     
                 </section>
+                
                 
                 <section id="our-team">
                     

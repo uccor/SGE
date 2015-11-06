@@ -69,6 +69,7 @@
             $container.find('div[node-id='+id+'] h2').replaceWith(inputElement);
             var commitChange = function(){
                 var h2Element = $('<h2>'+nodes[id].data.name+'</h2>');
+                
                 if(opts.allowEdit){
                     h2Element.click(function(){
                         self.startEdit(id);

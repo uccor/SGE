@@ -829,7 +829,7 @@ ul.social-network li a {
 
 #conCollapse th {
     height: 50px;
-    text-align: center;
+    text-align: left;
     background-color: #b2b2b2;
     color: black;
 }

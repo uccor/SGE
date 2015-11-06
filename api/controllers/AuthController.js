@@ -26,10 +26,8 @@ module.exports = {
             }
             req.logIn(user, function(err) {
                 if (err) res.send(err);
-                return res.send({
-                    message: info.message,
-                    user: user
-                });
+                
+                return res.redirect('/homepage')
             });
 
         })(req, res);
@@ -37,6 +35,7 @@ module.exports = {
 
     logout: function(req, res) {
         req.logout();
-        res.redirect('/');
+        res.redirect('/login');
     }
 };
+

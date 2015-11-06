@@ -1,5 +1,28 @@
 var app = angular.module("sge",[]);
 
+app.controller("PuestoController", function($scope,$http){
+    $scope.puestos = [];
+    
+    var listarPuestos = function () {
+        var promesaPuestos = $http.get("/puesto/");
+        promesaPuestos.then(function(results){
+            $scope.puestos = results.data;
+        });
+        
+    };
+    
+    listarPuestos();
+    
+    $scope.altaPuesto = function () {
+        $http.post("/puesto/",$scope.puesto).then(listarPuestos);
+    };
+    
+    $scope.puesto = {
+       nombrePuesto:""
+    };
+    
+});
+
 app.controller("OrganigramaController", function($scope,$http){
     $scope.empleados = [];
     var testData = [];
@@ -12,6 +35,7 @@ app.controller("OrganigramaController", function($scope,$http){
         return {
             id : empleado.id,
             name: empleado.nombre,
+            puesto: empleado.puesto,
             parent: empleado.jefe || 0
         }
     });
@@ -29,8 +53,7 @@ app.controller("OrganigramaController", function($scope,$http){
 app.controller("EmpleadoController", function($scope,$http){
     $scope.empleados = [];
     
-    
-     var listarEmpleados = function () {
+    var listarEmpleados = function () {
         var promesaEmpleados = $http.get("/empleado/");
         promesaEmpleados.then(function(results){
             $scope.empleados = results.data;
