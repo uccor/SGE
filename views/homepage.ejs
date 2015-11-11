@@ -102,7 +102,6 @@
     <div class="main container clearfix">
         <div>
             <div  ng-controller="EmpleadoController">
-            <form>
 
                 <section id="altaEmpleados" ng-controller="PuestoController">
                     <br>
@@ -178,6 +177,38 @@
                 	</table>
                 </section>
                 
+                <section id="listarPuestos" ng-controller="PuestoController" >
+                    
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <div class="panel-heading" style="background-color:#cccccc; overflow: auto;">
+                			<h2 class="title" align="center" styles="backgroundColor=black"> Lista de puestos </h2>
+                	</div>
+                
+                    <br>
+                    <br>
+                
+                    <div>
+                        <table id="conCollapse">
+                            <thead bgcolor="#DCDCDC">
+								<tr>
+									<th>Puesto</th>
+									<th>Acción</th>
+								</tr>
+							</thead>
+                            <tr ng-repeat="puesto in puestos" class="ng-scope">
+                                        <td>{{puesto.nombrePuesto}}</td>
+                                        <td><button class="btn btn-default" ng-click="bajaPuesto(puesto.id)">Eliminar</button></td>
+                                        
+                            </tr>
+                        </table>
+                    </div>
+                    
+                </section>
+                
                 <section id="listaEmpleados">
                     
                     <br>
@@ -203,7 +234,7 @@
 								</tr>
 							</thead>
                             <tr ng-repeat="empleado in empleados">
-                                        <td>{{empleado.nombre}}</td>
+                                        <td><a contentEditable="true" editable-text="empleado.nombre">{{empleado.nombre || 'empty'}}</a></td>
                                         <td>{{empleado.apellido}}</td> 
                                         <td>{{empleado.puesto}}</td>
                                     <td><button class="btn btn-default" ng-click="bajaEmpleado(empleado.id)">Eliminar</button></td>
@@ -222,7 +253,7 @@
                     <div class="panel-heading" style="background-color:#cccccc; overflow: auto; width:100%;">
                 			<h2 class="title" align="center" styles="backgroundColor=black"> Modificación de empleados </h2>
                 	</div>
-                	
+                
                 	<br>
                     <br>
                     
@@ -285,7 +316,7 @@
                 			<h2 class="title" align="center" styles="backgroundColor=black"> Organigrama de la empresa </h2>
                 	</div>
                 
-                    <div ng-controller="OrganigramaController">
+                    <div>
                         <div id="orgChart">
                             
                             
@@ -332,7 +363,7 @@
                     			</div>
                     	</div><!--/#our-team-->
                 </section>
-            </form>
+
     </div>
 </div>
 

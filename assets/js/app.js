@@ -1,4 +1,8 @@
-var app = angular.module("sge",[]);
+var app = angular.module("sge",["xeditable"]);
+
+app.run(function(editableOptions) {
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+});
 
 app.controller("PuestoController", function($scope,$http){
     $scope.puestos = [];
@@ -21,17 +25,27 @@ app.controller("PuestoController", function($scope,$http){
        nombrePuesto:""
     };
     
+    $scope.bajaPuesto= function (id) {
+        $http.delete("/puesto/"+id).then(listarPuestos);
+    };
+    
+    
+    
 });
 
-app.controller("OrganigramaController", function($scope,$http){
+
+
+app.controller("EmpleadoController", function($scope,$http){
     $scope.empleados = [];
+    $scope.actualizarOrganigrama = function(){
+        $scope.$emit("actualizar");
+    };
     var testData = [];
-    
     var listarEmpleados = function () {
         var promesaEmpleados = $http.get("/empleado/");
         promesaEmpleados.then(function(results){
-            
-        testData = _.map(results.data,function (empleado) {
+            $scope.empleados = results.data;
+            testData = _.map(results.data,function (empleado) {
         return {
             id : empleado.id,
             name: empleado.nombre,
@@ -44,20 +58,7 @@ app.controller("OrganigramaController", function($scope,$http){
     var orgChart = $('#orgChart').orgChart({data: testData});
     }
         });
-    };
-    
-    listarEmpleados();
-   
-});
-
-app.controller("EmpleadoController", function($scope,$http){
-    $scope.empleados = [];
-    
-    var listarEmpleados = function () {
-        var promesaEmpleados = $http.get("/empleado/");
-        promesaEmpleados.then(function(results){
-            $scope.empleados = results.data;
-        });
+         
     };
     
     listarEmpleados();
@@ -67,7 +68,7 @@ app.controller("EmpleadoController", function($scope,$http){
     };
     
     $scope.altaEmpleado = function () {
-        $http.post("/empleado/",$scope.empleado).then(listarEmpleados).then(OrganigramaController(listarEmpleados));
+        $http.post("/empleado/",$scope.empleado).then(listarEmpleados);
     };
     
     $scope.bajaEmpleado = function (id) {
