@@ -97,13 +97,13 @@
 	</div><!--/#slider-->
 
 
-<div class="default-page">
+<div class="default-page" ng-controller="EmpleadoController">
     
     <div class="main container clearfix">
-        <div>
-            <div  ng-controller="EmpleadoController">
+        
+                <div>
 
-                <section id="altaEmpleados" ng-controller="EmpleadoController">
+                <section id="altaEmpleados">
                     <br>
                     <br>
                     <br>
@@ -153,7 +153,8 @@
                 	</table>
                     
                 </section>
-                <div  ng-controller="EmpleadoController">
+                </div>
+                <div>
                 
                     
                 <section id="puestos">
@@ -212,7 +213,7 @@
                 </section>
                 </div>
                 <div>
-                
+                <div>
                 <section id="listaEmpleados">
                     
                     <br>
@@ -247,66 +248,67 @@
                     </div>
                     
                 </section>
+                </div>
                 
-                <section id="modificacionEmpleados">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                <!--<section id="modificacionEmpleados">-->
+                <!--    <br>-->
+                <!--    <br>-->
+                <!--    <br>-->
+                <!--    <br>-->
                     
-                    <div class="panel-heading" style="background-color:#cccccc; overflow: auto; width:100%;">
-                			<h2 class="title" align="center" styles="backgroundColor=black"> Modificación de empleados </h2>
-                	</div>
+                <!--    <div class="panel-heading" style="background-color:#cccccc; overflow: auto; width:100%;">-->
+                <!--			<h2 class="title" align="center" styles="backgroundColor=black"> Modificación de empleados </h2>-->
+                <!--	</div>-->
                 
-                	<br>
-                    <br>
+                <!--	<br>-->
+                <!--    <br>-->
                     
-                	<table id="conCollapse">
+                <!--	<table id="conCollapse">-->
                 	    
-                	<tr class="form-group">
-                        <td><label >ID: </label></td>
-                        <td><select class="form-control" ng-model="empleado.id" ng-options="empleado.id as empleado.id for empleado in empleados">
-                                <option>id</option>
-                            </select>
-                        </td>
-                    </tr>
+                <!--	<tr class="form-group">-->
+                <!--        <td><label >ID: </label></td>-->
+                <!--        <td><select class="form-control" ng-model="empleado.id" ng-options="empleado.id as empleado.id for empleado in empleados">-->
+                <!--                <option>id</option>-->
+                <!--            </select>-->
+                <!--        </td>-->
+                <!--    </tr>-->
                 	    
-                	<tr class="form-group">
-                        <td><label for="nombreInput">Nuevo nombre: </label></td>
-                        <td><input type="text" class="form-control" id="nombreInput" ng-model="empleado.nombre" placeholder="Nombre"></td>
-                    </tr>
+                <!--	<tr class="form-group">-->
+                <!--        <td><label for="nombreInput">Nuevo nombre: </label></td>-->
+                <!--        <td><input type="text" class="form-control" id="nombreInput" ng-model="empleado.nombre" placeholder="Nombre"></td>-->
+                <!--    </tr>-->
                     
-                    <tr class="form-group">
-                        <td><label for="apellidoInput">Nuevo apellido: </label></td>
-                        <td><input type="text" class="form-control" id="apellidoInput" ng-model="empleado.apellido" placeholder="Apellido"></td>
-                    </tr>
+                <!--    <tr class="form-group">-->
+                <!--        <td><label for="apellidoInput">Nuevo apellido: </label></td>-->
+                <!--        <td><input type="text" class="form-control" id="apellidoInput" ng-model="empleado.apellido" placeholder="Apellido"></td>-->
+                <!--    </tr>-->
                     
-                    <tr class="form-group">
-                         <td><label >Nuevo puesto: </label></td>
-                         <td><select class="form-control" ng-model="empleado.puesto" ng-options="puesto.id as puesto.nombrePuesto for puesto in puestos">
-                                <option>puesto</option>
-                            </select>
-                         </td>
-                    </tr>
-                    </tr>
+                <!--    <tr class="form-group">-->
+                <!--         <td><label >Nuevo puesto: </label></td>-->
+                <!--         <td><select class="form-control" ng-model="empleado.puesto" ng-options="puesto.id as puesto.nombrePuesto for puesto in puestos">-->
+                <!--                <option>puesto</option>-->
+                <!--            </select>-->
+                <!--         </td>-->
+                <!--    </tr>-->
+                <!--    </tr>-->
                     
-                    <tr class="form-group">
-                        <td><label >Nuevo jefe: </label></td>
-                        <td><select class="form-control" ng-model="empleado.jefe" ng-options="empleado.id as empleado.nombre for empleado in empleados">
-                                <option >Chuck Norris</option>
-                            </select>
-                        </td>
-                    </tr>
+                <!--    <tr class="form-group">-->
+                <!--        <td><label >Nuevo jefe: </label></td>-->
+                <!--        <td><select class="form-control" ng-model="empleado.jefe" ng-options="empleado.id as empleado.nombre for empleado in empleados">-->
+                <!--                <option >Chuck Norris</option>-->
+                <!--            </select>-->
+                <!--        </td>-->
+                <!--    </tr>-->
                     
-                    <tr class="center">
-                        <td colspan='2' align="center">
-                            <button class="btn btn-default" ng-click="modificarEmpleado(empleado.id)">Modificar</button>
-                        </td>
-                    </tr>
+                <!--    <tr class="center">-->
+                <!--        <td colspan='2' align="center">-->
+                <!--            <button class="btn btn-default" ng-click="modificarEmpleado(empleado.id)">Modificar</button>-->
+                <!--        </td>-->
+                <!--    </tr>-->
                 	    
-                	</table>
+                <!--	</table>-->
                     
-                </section>
+                <!--</section>-->
 
                 
                 <section id="organigrama">
@@ -369,6 +371,7 @@
                 </section>
 
     </div>
+</div>
 </div>
 
 
