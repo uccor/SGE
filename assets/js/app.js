@@ -4,37 +4,6 @@ app.run(function(editableOptions) {
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 });
 
-app.controller("PuestoController", function($scope,$http){
-    $scope.puestos = [];
-    
-    var listarPuestos = function () {
-        var promesaPuestos = $http.get("/puesto/");
-        promesaPuestos.then(function(results){
-            $scope.puestos = results.data;
-        });
-        
-    };
-    
-    listarPuestos();
-    
-    $scope.altaPuesto = function () {
-        $http.post("/puesto/",$scope.puesto).then(listarPuestos);
-    };
-    
-    $scope.puesto = {
-       nombrePuesto:""
-    };
-    
-    $scope.bajaPuesto= function (id) {
-        $http.delete("/puesto/"+id).then(listarPuestos);
-    };
-    
-    
-    
-});
-
-
-
 app.controller("EmpleadoController", function($scope,$http){
     $scope.empleados = [];
     $scope.actualizarOrganigrama = function(){
@@ -84,6 +53,64 @@ app.controller("EmpleadoController", function($scope,$http){
         var promesaEmpleadoAModificar = $http.get("/empleado/"+id);
         promesaEmpleadoAModificar.then(function(results){
             $scope.empleados = results.data;
+        });
+    };
+    
+    $scope.puestos = [];
+    
+    var listarPuestos = function () {
+        var promesaPuestos = $http.get("/puesto/");
+        promesaPuestos.then(function(results){
+            $scope.puestos = results.data;
+        });
+        
+    };
+    
+    listarPuestos();
+    
+    $scope.altaPuesto = function () {
+        $http.post("/puesto/",$scope.puesto).then(listarPuestos);
+    };
+    
+    $scope.puesto = {
+       nombrePuesto:""
+    };
+    
+    $scope.bajaPuesto= function (id) {
+        
+        var promesaPuestos = $http.get("/puesto/"+id); //trae el puesto a eliminar?
+        
+        promesaPuestos.then(function(results){
+            var puestoSeleccionado = results.data;
+            //var empleados = $scope.empleados;
+            var nPuesto = puestoSeleccionado.nombrePuesto;
+            var eliminar = true;
+            
+            var promesaEmpleados = $http.get("/empleado/");
+            
+            promesaEmpleados.then(function(results){
+                $scope.empleados = results.data;
+                var datos = [];
+                datos = _.map(results.data,function (empleado) {
+                    return { puesto: empleado.puesto }
+                });
+                
+                for(var empleado in datos){
+                    
+                    if( datos[empleado].puesto == nPuesto){
+                        
+                        eliminar = false;
+                    }
+                }
+            
+                if(eliminar){
+                    $http.delete("/puesto/"+id).then(listarPuestos); 
+                }
+                
+                if(eliminar==false){
+                    alert("El puesto no puede ser eliminado porque se encuentra asignado a un empleado.");
+                }
+            });
         });
     };
     

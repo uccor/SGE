@@ -58,6 +58,12 @@ module.exports.policies = {
     '*': 'isAuthenticated'
   },
   
+  'PuestoController': {
+    '*': 'isAuthenticated'
+  },
   
+  'HomepageController': {
+    '*': 'isAuthenticated'
+  }
   
 };
