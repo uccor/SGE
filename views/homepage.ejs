@@ -203,7 +203,7 @@
 								</tr>
 							</thead>
                             <tr ng-repeat="puesto in puestos" class="ng-scope">
-                                        <td>{{puesto.nombrePuesto}}</td>
+                                        <td><a contentEditable="true" onbeforesave="actualizarPuesto($data, puesto.id)" editable-text="puesto.nombrePuesto">{{puesto.nombrePuesto || 'empty'}}</a></td>
                                         <td><button class="btn btn-default" ng-click="bajaPuesto(puesto.id)">Eliminar</button></td>
                                         
                             </tr>
@@ -239,8 +239,8 @@
 								</tr>
 							</thead>
                             <tr ng-repeat="empleado in empleados">
-                                        <td><a contentEditable="true" editable-text="empleado.nombre">{{empleado.nombre || 'empty'}}</a></td>
-                                        <td>{{empleado.apellido}}</td> 
+                                        <td><a contentEditable="true" onbeforesave="actualizarNombre($data, empleado.id)" editable-text="empleado.nombre">{{empleado.nombre || 'empty'}}</a></td>
+                                        <td><a contentEditable="true" onbeforesave="actualizarApellido($data, empleado.id)" editable-text="empleado.apellido">{{empleado.apellido || 'empty'}}</a></td>
                                         <td>{{empleado.puesto}}</td>
                                     <td><button class="btn btn-default" ng-click="bajaEmpleado(empleado.id)">Eliminar</button></td>
                             </tr>

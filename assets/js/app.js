@@ -49,6 +49,19 @@ app.controller("EmpleadoController", function($scope,$http){
         $http.post("/empleado/"+id,$scope.empleado).then(listarEmpleados);
     };
     
+    $scope.actualizarNombre = function(data,id)
+    {
+        return  $http.post("/empleado/"+id,{nombre: data}).then(listarEmpleados); 
+    }
+    $scope.actualizarApellido = function(data ,id)
+    {
+        return  $http.post("/empleado/"+id,{apellido: data}).then(listarEmpleados); 
+    }
+     $scope.actualizarPuesto= function(data ,id)
+    {
+        return  $http.post("/puesto/"+id,{nombrePuesto: data}).then(listarPuestos).then(listarEmpleados); 
+    }
+    
      var buscarEmpleado = function (id) {
         var promesaEmpleadoAModificar = $http.get("/empleado/"+id);
         promesaEmpleadoAModificar.then(function(results){
